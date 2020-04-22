@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from './components/header/Header'
+import './App.scss'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  /* future improvements
+   * - !! deploy to Heroku to enable the Movies search page
+   * - pull out hard-coded text into a markdown or json file
+   * - offline mode with PWA modifications
+   * - Dark Mode slider in Header to transform theme instantly
+   */
+
+  render() {
+    return (
+      <div className="App">
+        <Header
+          titleText="Title Goes Here"
+          linkText="Learn React"
+        />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
