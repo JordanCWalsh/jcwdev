@@ -5,10 +5,11 @@ const Header = (props) => {
   return(
     <header className="App-header">
       <h2>{props.titleText}</h2>
+
       <img
         src={logo}
         className="App-logo"
-        alt="reactjs logo: three elipsi surround a dot" 
+        alt="reactjs logo: three elipsi surround a dot"
       />
       <p>
         Edit <code>src/App.js</code> and save to reload.

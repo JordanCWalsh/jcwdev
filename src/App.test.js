@@ -1,5 +1,4 @@
 import React from 'react'
-//mport { render, screen } from '@testing-library/react'
 import { shallow, mount, render } from 'enzyme'
 import Header from './components/header/Header'
 import App from './App'

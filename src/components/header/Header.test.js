@@ -5,10 +5,10 @@ import Header from './Header'
 
 test('renders title and link texts', () => {
   const { getByText } = render(
-    <Header titleText="Title Goes Here" linkText="Learn React" />
+    <Header titleText="AWEsumsawce" linkText="Learn React Hooks" />
   )
-  const titleElement = getByText("Title Goes Here")
-  const linkElement = getByText("Learn React")
+  const titleElement = getByText("AWEsumsawce")
+  const linkElement = getByText("Learn React Hooks")
 
   expect(titleElement).toBeInTheDocument()
   expect(linkElement).toBeInTheDocument()
