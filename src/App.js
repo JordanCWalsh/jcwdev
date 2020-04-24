@@ -9,13 +9,23 @@ class App extends React.Component {
    * - offline mode with PWA modifications
    * - Dark Mode slider in Header to transform theme instantly
    */
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      header: {
+        titleText: "Title Goes Here",
+        linkText: "Learn React"
+      }
+    }
+  }
 
   render() {
     return (
       <div className="App">
         <Header
-          titleText="Title Goes Here"
-          linkText="Learn React"
+          titleText={this.state.header.titleText}
+          linkText={this.state.header.linkText}
         />
       </div>
     )

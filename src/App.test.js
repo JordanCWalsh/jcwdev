@@ -1,22 +1,38 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+//mport { render, screen } from '@testing-library/react'
+import { shallow, mount, render } from 'enzyme'
 import Header from './components/header/Header'
 import App from './App'
 
-it('renders all components', () => {
-  render(<App />)
+describe('App: unit test suite', () => {
+  it('renders all components without crashing', () => {
+    const appWrapper = shallow(<App />)
 
-  // START HERE >>> expect(screen.getByClass('App-header')).toBeInTheDocument()
-  // likely need to install Enzyme to do something like `expect(screen.get(Header)).toBeTruthy()`
+    expect(appWrapper.find(Header).length).toEqual(1)
 
-  expect(screen.getByText('Learn React')).toBeInTheDocument()
-})
+    // other components here
+  })
 
-it('renders child logo and linkText', () => {
-  render(<App />)
+  it('renders App element with correct className', () => {
+    expect(shallow(<App />).find('.App').length).toEqual(1)
+  })
 
-  expect(screen.getByAltText(/reactjs logo: three elipsi surround a dot/i))
-    .toBeInTheDocument()
+  it('renders with correct state', () => {
+    const appWrapper = mount(<App />)
 
-  expect(screen.getByText('Learn React')).toBeInTheDocument()
+    const appState = {
+      header: {
+        titleText: "BETA Title",
+        linkText: "link-to-somecoolplace"
+      }
+    }
+
+    appWrapper.setState(appState)
+    const headerNode = appWrapper.find(Header)
+
+    expect(headerNode.length).toEqual(1)
+
+    expect(headerNode.first().props().titleText).toEqual(appState.header.titleText)
+    expect(headerNode.first().props().linkText).toEqual(appState.header.linkText)
+  })
 })

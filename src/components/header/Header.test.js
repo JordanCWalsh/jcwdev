@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import logo from './logo.svg'
 import Header from './Header'
 
-it('renders title and link texts', () => {
+test('renders title and link texts', () => {
   const { getByText } = render(
     <Header titleText="Title Goes Here" linkText="Learn React" />
   )
@@ -14,13 +14,13 @@ it('renders title and link texts', () => {
   expect(linkElement).toBeInTheDocument()
 })
 
-// it('renders the logo', () => {
-//   const { getByText } = render(
-//     <Header titleText="Titled" linkText="linked" />
-//   )
-//   const titleElement = getByText("Title Goes Here")
-//
-//   expect(titleElement).toBeInTheDocument()
-// })
+test('renders the logo', () => {
+  render(<Header titleText="Titled" linkText="linked" />)
 
-// it('renders header elements', () => {});
+  expect(screen.getByAltText(/reactjs logo: three elipsi surround a dot/i))
+    .toBeInTheDocument()
+})
+
+// test('renders header elements', () => {
+//
+// });
